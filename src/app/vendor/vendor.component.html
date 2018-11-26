@@ -1,0 +1,28 @@
+
+		<div id="wrap">
+			<div class="container">
+        <br>
+        <h3> Vendor details </h3>
+				<table cellpadding="0" cellspacing="0" border="0" class="datatable table table-striped table-bordered">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Amount Paid</th>
+							<th>Pending Amount</th>
+							<th>View Checks</th>
+
+						</tr>
+					</thead>
+					<tbody>
+            <tr *ngFor="let sr of data">
+                  <td>{{sr.Name}}</td>
+                  <td>{{sr.Paid}} </td>
+                  <td>{{sr.Pending}} </td>
+                  <td><a (click)="go(sr.Name)"><i style='font-size:24px' class='far'>&#xf06e;</i> </a>
+</td>
+             </tr>
+
+          </tbody>
+				</table>
+			</div>
+		</div>

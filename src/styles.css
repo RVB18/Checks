@@ -1,0 +1,102 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+.bottom-left {
+    position: absolute;
+    bottom: 42%;
+    left: 10%;
+}
+
+.top-left {
+    position: absolute;
+    top: 11%;
+    left: 14%;
+}
+.top-left1 {
+    position: absolute;
+    top: 28%;
+    right: 54%;
+}
+
+.top-right {
+    position: absolute;
+    top: 6%;
+    right: 29%
+}
+.top-right1 {
+    position: absolute;
+    top: 8%;
+    right: 9%
+}
+
+.bottom-right {
+    position: absolute;
+    top: 14%;
+    right: 17%;
+}
+.bottom-left1 {
+    position: absolute;
+    bottom: 52%;
+    right: 85%;
+}
+
+.bottom-left1 {
+    position: absolute;
+    top: 12%;
+    left: 13%;
+}
+.bottom-left2 {
+    position: absolute;
+    top: 18%;
+    left: 12%;
+}
+
+
+.centered {
+    position: absolute;
+    top: 11%;
+    left: 82%;
+    transform: translate(-50%, -50%);
+}
+.centeredq {
+    position: absolute;
+    top: 6%;
+    left: 82%;
+    transform: translate(-50%, -50%);
+}
+.bot {
+    position: absolute;
+    top : 18%;
+    left: 32%;
+	font-size:20px
+}
+
+body {
+  font-family: Roboto, Arial, sans-serif;
+  margin: 0;
+}
+
+.basic-container {
+  padding: 5px;
+}
+
+.version-info {
+  font-size: 8pt;
+  float: right;
+}
+
+.mat-row.hovered {
+  background: #eee;
+}
+
+.mat-row.highlighted {
+  background: #999;
+}
+
+/*
+  This is a work around for checkbox bug in material row
+  https://github.com/angular/material2/issues/8600
+*/
+mat-cell.mat-cell, mat-header-cell.mat-header-cell {
+  overflow: visible;
+}

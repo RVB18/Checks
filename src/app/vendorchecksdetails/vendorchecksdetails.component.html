@@ -1,0 +1,38 @@
+
+		<div id="wrap">
+			<div class="container">
+        <br>
+        <h3>Available cheques for vendor</h3>
+				<table cellpadding="0" cellspacing="0" border="0" class="datatable table table-striped table-bordered">
+					<thead>
+						<tr>
+							<th>Cheque ID</th>
+							<th>Name</th>
+							<th>Date</th>
+							<th>Doller</th>
+              <th>Check status</th>
+              <th>Print </th>
+
+
+
+
+						</tr>
+					</thead>
+					<tbody>
+            <tr *ngFor="let sr of data">
+                  <td>{{sr.chequeid}}</td>
+                  <td>{{sr.Name}} </td>
+                  <td>{{sr.Date}} </td>
+                  <td>{{sr.Dollar}} </td>
+                  <td>{{sr.Status}} </td>
+
+
+
+                  <td><a (click)="send(sr)"><i style='font-size:24px' class='fas'>&#xf02f;</i> </a>
+</td>
+             </tr>
+
+          </tbody>
+				</table>
+			</div>
+		</div>

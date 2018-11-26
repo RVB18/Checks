@@ -1,0 +1,25 @@
+<style>
+ .page-break { height:0; page-break-before:always; margin:0; border-top:none; }
+ @import url('https://fonts.googleapis.com/css?family=Pacifico');
+
+</style>
+
+
+<div style="margin-top:18px" class="page-break"  *ngFor="let exdata of data">
+
+<div style="margin-top:30px" class="container"  *ngFor="let exdata1 of exdata.in">
+
+  <img src="/assets/chequeorg.jpeg" alt="Snow" style="width:100%; height:10%">
+     <p class="top-left" style="color:black;margin-left:-6%;margin-top:-5%">JOHN,</p>
+   <p class="top-left" style="color:black;margin-left:-6%;margin-top:-3%">Phoenix , Arizona</p>
+
+
+  <p class="bottom-left1" style="color:black;font-style:italic-bold;font-family: 'Pacifico', cursive;">{{exdata1.name}}</p><br>
+
+      <p class="top-right1" style="color:black;font: italic bold ">888</p>
+
+  <p class="bot" style="color:black;font: italic bold;margin-top:8% ">C455556C  A56154654A  888C</p>
+</div>
+
+
+</div>
