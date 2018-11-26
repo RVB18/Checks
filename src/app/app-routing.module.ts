@@ -6,6 +6,7 @@ import { VendorchecksdetailsComponent } from './vendorchecksdetails/vendorchecks
 import { SinglechequeprintComponent } from './singlechequeprint/singlechequeprint.component';
 import { MulticheckComponent } from './multicheck/multicheck.component';
 import { Multicheck2Component } from './multicheck2/multicheck2.component';
+import { TabletestComponent } from './tabletest/tabletest.component';
 
 
 
@@ -15,7 +16,8 @@ const routes: Routes = [
 {path:'vendorcheckdetails/:name',component:VendorchecksdetailsComponent},
 {path:'singlecheck/:data',component:SinglechequeprintComponent},
 {path:'multicheck/:data',component:MulticheckComponent},
-{path:'multicheck2',component:Multicheck2Component}];
+{path:'multicheck2',component:Multicheck2Component},
+{path:'tabletest',component:TabletestComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

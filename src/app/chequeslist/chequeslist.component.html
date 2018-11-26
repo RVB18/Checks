@@ -1,12 +1,18 @@
+<br>
+<h1 align="center" style="margin-left:5%">All Cheque's Details</h1>
 
-<div class="container" style="margin-top:5%">
+<br>
+
+<div class="container" >
+
 	<mat-form-field>
-		<input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+		<input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
 	</mat-form-field>
-	<button type="button" name="button" class="btn btn-primary offset-md-3" (click)="g()"><i class="fa fa-print" style="font-size:18px"></i>
-		Print</button>
-		<button type="button" class="btn btn-primary offset-md-1" data-toggle="modal" data-target="#myModal">
-			Upload CSV
+	<button type="button"  style="width:130px" name="button" class="btn btn-primary" style="background-color:black;margin-left:25%" (click)="g()"><i class="fa fa-print" style="font-size:18px"></i>
+		Print      	</button>
+		<button type="button" class="btn btn-primary offset-md-1" data-toggle="modal"style="background-color:black" data-target="#myModal">
+			<i class="fa fa-upload" aria-hidden="true"></i>
+	Upload
 		</button>
 
 		<!-- The Modal -->
@@ -65,7 +71,7 @@
 					<!-- Progress Column -->
 					<ng-container matColumnDef="Name">
 						<mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
-						<mat-cell *matCellDef="let dataSource"> {{dataSource.Name}}% </mat-cell>
+						<mat-cell *matCellDef="let dataSource"> {{dataSource.Name}} </mat-cell>
 					</ng-container>
 
 					<!-- Name Column -->
@@ -77,7 +83,7 @@
 					<!-- Color Column -->
 					<ng-container matColumnDef="Amount">
 						<mat-header-cell *matHeaderCellDef mat-sort-header> Amount </mat-header-cell>
-						<mat-cell *matCellDef="let dataSource" [style.color]="dataSource.color"> {{dataSource.Dollar}} </mat-cell>
+						<mat-cell *matCellDef="let dataSource" [style.color]="dataSource.color"> {{dataSource.Dollar}}$ </mat-cell>
 					</ng-container>
 					<ng-container matColumnDef="Status">
 						<mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>

@@ -53,6 +53,7 @@ import { SinglechequeprintComponent } from './singlechequeprint/singlechequeprin
 import { MulticheckComponent } from './multicheck/multicheck.component';
 import { CommonModule } from '@angular/common';
 import { Multicheck2Component } from './multicheck2/multicheck2.component';
+import { TabletestComponent } from './tabletest/tabletest.component';
 
 @NgModule({
   exports: [
@@ -89,7 +90,7 @@ import { Multicheck2Component } from './multicheck2/multicheck2.component';
     MatToolbarModule,
     MatTooltipModule,
   ],
-  declarations: []
+  declarations: [TabletestComponent]
 })
 export class DemoMaterialModule {}
 

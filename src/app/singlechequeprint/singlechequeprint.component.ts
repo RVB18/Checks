@@ -20,15 +20,15 @@ var a=this.data
   ngOnInit() {
     this.route.params.subscribe(params => {
        this.data = JSON.parse(params['data']); // (+) converts string 'id' to a number
-
+console.log(this.data)
        // In a real app: dispatch action to load the details here.
 
     });
     var a=this.data
     this.http.get('http://13.232.165.2:3000/statusupdate?chequeid='+a.chequeid).subscribe(data => {
           //console.log(data);
-          this.data=data;
-          console.log(this.data);
+        //  this.data=data;
+          console.log(data);
 
         });
         window.print()
