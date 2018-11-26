@@ -12,10 +12,9 @@ export class SinglechequeprintComponent implements OnInit, AfterViewInit {
 
   constructor(private route: ActivatedRoute,private router: Router,private http: HttpClient) { }
   ngAfterViewInit() {
-    window.print()
 console.log(this.data)
 var a=this.data
- this.router.navigate(['/vendorcheckdetails',a.Name]);
+// this.router.navigate(['/vendorcheckdetails',a.Name]);
 
     }
   ngOnInit() {
@@ -32,6 +31,8 @@ var a=this.data
           console.log(this.data);
 
         });
+        window.print()
+
   }
 
 }

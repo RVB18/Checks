@@ -1,28 +1,56 @@
+<div class="container">
+<div class="example-header">
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+</div>
 
-		<div id="wrap">
-			<div class="container">
-        <br>
-        <h3> Vendor details </h3>
-				<table cellpadding="0" cellspacing="0" border="0" class="datatable table table-striped table-bordered">
-					<thead>
-						<tr>
-							<th>Name</th>
-							<th>Amount Paid</th>
-							<th>Pending Amount</th>
-							<th>View Checks</th>
+<div class="example-container mat-elevation-z8">
 
-						</tr>
-					</thead>
-					<tbody>
-            <tr *ngFor="let sr of data">
-                  <td>{{sr.Name}}</td>
-                  <td>{{sr.Paid}} </td>
-                  <td>{{sr.Pending}} </td>
-                  <td><a (click)="go(sr.Name)"><i style='font-size:24px' class='far'>&#xf06e;</i> </a>
-</td>
-             </tr>
+  <mat-table [dataSource]="dataSource" matSort>
 
-          </tbody>
-				</table>
-			</div>
-		</div>
+    <!-- ID Column -->
+    <ng-container matColumnDef="Name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+      <mat-cell *matCellDef="let dataSource"> {{dataSource.Name}} </mat-cell>
+    </ng-container>
+
+    <!-- Progress Column -->
+    <ng-container matColumnDef="Pending Amount">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Pending Amount </mat-header-cell>
+      <mat-cell *matCellDef="let dataSource"> {{dataSource.Pending}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="Paid Amount">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Paid Amount </mat-header-cell>
+      <mat-cell *matCellDef="let dataSource"> {{dataSource.Paid}} </mat-cell>
+    </ng-container>
+
+    <!-- Color Column -->
+    <ng-container matColumnDef="Amount">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Amount </mat-header-cell>
+      <mat-cell *matCellDef="let dataSource" [style.color]="dataSource.color"> {{dataSource.Dollar}} </mat-cell>
+    </ng-container>
+
+
+		<ng-container matColumnDef="View">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> View </mat-header-cell>
+      <mat-cell *matCellDef="let dataSource" (click)="go(dataSource)" > <i class="fa fa-eye" style="font-size:24px"></i></mat-cell>
+    </ng-container>
+
+
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" [ngClass]="{hovered: row.hovered, highlighted: row.highlighted}" (mouseover)="row.hovered = true" (mouseout)="row.hovered = false">
+    </mat-row>
+  </mat-table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>
+
+
+<!-- Copyright 2018 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->
+</div>

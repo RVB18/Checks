@@ -1,38 +1,61 @@
+<div class="container">
+<div class="example-header">
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+</div>
 
-		<div id="wrap">
-			<div class="container">
-        <br>
-        <h3>Available cheques for vendor</h3>
-				<table cellpadding="0" cellspacing="0" border="0" class="datatable table table-striped table-bordered">
-					<thead>
-						<tr>
-							<th>Cheque ID</th>
-							<th>Name</th>
-							<th>Date</th>
-							<th>Doller</th>
-              <th>Check status</th>
-              <th>Print </th>
+<div class="example-container mat-elevation-z8">
+
+  <mat-table [dataSource]="dataSource" matSort>
 
 
+		<ng-container matColumnDef="ChequeID">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> ChequeID </mat-header-cell>
+      <mat-cell *matCellDef="let dataSource"> {{dataSource.chequeid}} </mat-cell>
+    </ng-container>
+    <!-- ID Column -->
+    <ng-container matColumnDef="Name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+      <mat-cell *matCellDef="let dataSource"> {{dataSource.Name}} </mat-cell>
+    </ng-container>
+
+    <!-- Progress Column -->
+    <ng-container matColumnDef="Date">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Date </mat-header-cell>
+      <mat-cell *matCellDef="let dataSource"> {{dataSource.Date}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="Amount">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Amount </mat-header-cell>
+      <mat-cell *matCellDef="let dataSource"> {{dataSource.Dollar}} </mat-cell>
+    </ng-container>
+
+    <!-- Color Column -->
+    <ng-container matColumnDef="Status">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+      <mat-cell *matCellDef="let dataSource" [style.color]="dataSource.color"> {{dataSource.Status}} </mat-cell>
+    </ng-container>
 
 
-						</tr>
-					</thead>
-					<tbody>
-            <tr *ngFor="let sr of data">
-                  <td>{{sr.chequeid}}</td>
-                  <td>{{sr.Name}} </td>
-                  <td>{{sr.Date}} </td>
-                  <td>{{sr.Dollar}} </td>
-                  <td>{{sr.Status}} </td>
+		<ng-container matColumnDef="Print">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Print </mat-header-cell>
+      <mat-cell *matCellDef="let dataSource" (click)="send(dataSource)" > <i class="fa fa-print" style="font-size:24px"></i></mat-cell>
+    </ng-container>
 
 
 
-                  <td><a (click)="send(sr)"><i style='font-size:24px' class='fas'>&#xf02f;</i> </a>
-</td>
-             </tr>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" [ngClass]="{hovered: row.hovered, highlighted: row.highlighted}" (mouseover)="row.hovered = true" (mouseout)="row.hovered = false">
+    </mat-row>
+  </mat-table>
 
-          </tbody>
-				</table>
-			</div>
-		</div>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>
+
+
+<!-- Copyright 2018 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->
+</div>

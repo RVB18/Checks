@@ -1,6 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+body{
+background-image: radial-gradient(circle,#E9F5F3,#f0f9f4);
+}
 
+#example2 {
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 5px 5px 5px 5px #ddd;
+}
 .bottom-left {
     position: absolute;
     bottom: 42%;
