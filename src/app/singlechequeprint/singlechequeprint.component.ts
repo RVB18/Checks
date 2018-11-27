@@ -22,7 +22,7 @@ var a=this.data
        this.data = JSON.parse(params['data']); // (+) converts string 'id' to a number
 console.log(this.data)
        // In a real app: dispatch action to load the details here.
-
+window.open('http://alektasolutions.com/purchase/print/cheque?date='+this.data.Date+'&name='+this.data.Name+'&amount='+this.data.Dollar+'&addr=,,')
     });
     var a=this.data
     this.http.get('http://13.232.165.2:3000/statusupdate?chequeid='+a.chequeid).subscribe(data => {

@@ -21,7 +21,7 @@ export class VendorchecksdetailsComponent implements OnInit {
   send(data){
  var k =JSON.stringify(data);
 
-   window.open('/singlecheck/'+ k]);
+ window.open('http://alektasolutions.com/purchase/print/cheque?date='+data.Date+'&name='+data.Name+'&amount='+data.Dollar+'&addr=,,')
 
   }
   constructor(private route: ActivatedRoute,private http: HttpClient,private router: Router) {
