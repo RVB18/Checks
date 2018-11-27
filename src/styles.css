@@ -2,6 +2,8 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 body{
 background-image: radial-gradient(circle,#E9F5F3,#f0f9f4);
+font-family: 'Oswald', sans-serif;
+margin: 0;
 }
 
 #example2 {
@@ -80,8 +82,7 @@ background-image: radial-gradient(circle,#E9F5F3,#f0f9f4);
 }
 
 body {
-  font-family: Roboto, Arial, sans-serif;
-  margin: 0;
+
 }
 
 .basic-container {
