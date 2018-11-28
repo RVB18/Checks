@@ -7,6 +7,8 @@ import { SinglechequeprintComponent } from './singlechequeprint/singlechequeprin
 import { MulticheckComponent } from './multicheck/multicheck.component';
 import { Multicheck2Component } from './multicheck2/multicheck2.component';
 import { TabletestComponent } from './tabletest/tabletest.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
 
 
 
@@ -17,6 +19,9 @@ const routes: Routes = [
 {path:'singlecheck/:data',component:SinglechequeprintComponent},
 {path:'multicheck/:data',component:MulticheckComponent},
 {path:'multicheck2',component:Multicheck2Component},
+{path:'login',component:LoginComponent},
+{path:'signup',component:SignupComponent},
+
 {path:'tabletest',component:TabletestComponent}];
 
 @NgModule({

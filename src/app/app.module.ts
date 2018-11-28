@@ -54,6 +54,8 @@ import { MulticheckComponent } from './multicheck/multicheck.component';
 import { CommonModule } from '@angular/common';
 import { Multicheck2Component } from './multicheck2/multicheck2.component';
 import { TabletestComponent } from './tabletest/tabletest.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   exports: [
@@ -90,7 +92,7 @@ import { TabletestComponent } from './tabletest/tabletest.component';
     MatToolbarModule,
     MatTooltipModule,
   ],
-  declarations: [TabletestComponent]
+  declarations: []
 })
 export class DemoMaterialModule {}
 
@@ -101,7 +103,7 @@ export class DemoMaterialModule {}
     VendorComponent,
     VendorchecksdetailsComponent,
     SinglechequeprintComponent,
-    MulticheckComponent, Multicheck2Component,
+    MulticheckComponent, Multicheck2Component,LoginComponent,TabletestComponent,SignupComponent,
   ],
   imports: [
     BrowserModule,

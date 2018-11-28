@@ -14,7 +14,7 @@ import { number } from 'number-to-words';
 })
 export class ChequeslistComponent implements OnInit  {
 
-  displayedColumns = [ 'checked','chequeid', 'Name', 'Date', 'Amount','Status'];
+  displayedColumns = [ 'chequeid', 'Name', 'Date', 'Amount','Status'];
   dataSource: MatTableDataSource<UserData>;
   //
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -136,7 +136,6 @@ window.location.reload();
 
 }
 export interface UserData {
-  checked:boolean;
   chequeid: string;
   Name: string;
   Date: string;
