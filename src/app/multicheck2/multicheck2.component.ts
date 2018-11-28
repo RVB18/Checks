@@ -9,6 +9,9 @@ import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 })
 export class Multicheck2Component implements OnInit {
 
+  data:any;
+  map:any;
+
   displayedColumns = [ 'chequeid', 'Name', 'Date', 'Amount','Status'];
   dataSource: MatTableDataSource<UserData>;
 //
@@ -54,7 +57,13 @@ export class Multicheck2Component implements OnInit {
     filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
     this.dataSource.filter = filterValue;
   }
+
+
+  ngOnInit(){}
+
 }
+
+
 
 /** Builds and returns a new User. */
 function createNewUser(id: number): UserData {

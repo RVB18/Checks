@@ -12,6 +12,9 @@ import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
   styleUrls: ['./vendorchecksdetails.component.css']
 })
 export class VendorchecksdetailsComponent implements OnInit {
+
+  data:any;
+  
   displayedColumns = [ 'ChequeID', 'Name', 'Date', 'Amount','Status','Print'];
   dataSource: MatTableDataSource<UserData>;
   //

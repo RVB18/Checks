@@ -37,9 +37,15 @@ Settings          </a>
                         <li class="nav-item " [routerLinkActive]="['active']">
                             <a class="nav-link" routerLink="/cheques"><i class="fa fa-credit-card"></i> Cheque </a>
                         </li>
-                        <li class="nav-item" [routerLinkActive]="['active']">
-                            <a class="nav-link" routerLink="/vendor"><i class="fa fa-id-card"></i> Vendor</a>
+                        <li class="nav-item dropdown" [routerLinkActive]="['active']">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa  fa-user"></i>Vendor </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
+                                <a class="dropdown-item"
+                                 href="http://alektasolutions.com/purchase/print/cheque?date=2018-11-26&name=ravinder&amount=4500&addr=Phoenix,Arizona" routerLink="/vendor"> Vendor Checks </a>
+                                <a class="dropdown-item"  routerLink="/tableview">Vendor</a>
+                            </div>
                         </li>
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa  fa-cog"></i>Settings </a>
                             <div class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
@@ -50,7 +56,6 @@ Settings          </a>
                     </ul>
                 </div>
             </nav>
-
 
             <div class="modal fade" id="id01" role="dialog">
       <div class="modal-dialog modal-lg">
@@ -103,14 +108,6 @@ Settings          </a>
         </div>
       </div>
     </div>
-
-
-
-
-
-
-
-
 
 
 

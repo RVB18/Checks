@@ -5,14 +5,16 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import {MatTableDataSource,MatPaginator, MatSort,} from '@angular/material';
 
 import { Router } from '@angular/router';
-import { number } from 'number-to-words';
-//
+
 @Component({
   selector: 'app-chequeslist',
   templateUrl: './chequeslist.component.html',
   styleUrls: ['./chequeslist.component.css']
 })
 export class ChequeslistComponent implements OnInit  {
+
+  data:any;
+  map:any;
 
   displayedColumns = [ 'chequeid', 'Name', 'Date', 'Amount','Status'];
   dataSource: MatTableDataSource<UserData>;
@@ -24,34 +26,9 @@ export class ChequeslistComponent implements OnInit  {
   highlight(element: Element) {
     element.highlighted = !element.highlighted;
   }
-
-
-  constructor(private http: HttpClient,private router: Router) {
-    const users: UserData[] = [];
-    //  for (let i = 1; i <= 100; i++) { users.push(createNewUser(i)); }
-
-    // Assign the data to the data source for the table to render
-
-
-    this.http.get('http://13.232.165.2:3000/cheque').subscribe(data => {
-      //console.log(data);
-      this.data=data;
-      for(var t=0;t<data.length;t++){
-        users.push(data[t])
-
-      }
-      this.dataSource = new MatTableDataSource(users);
-
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
-      //  console.log("sdfsd "+this.dataSource)
-
-
-    });
-  }
   highlightedRows(row){
       //  if(hash)
-
+//
 
       var a=row.chequeid
 
@@ -64,6 +41,31 @@ export class ChequeslistComponent implements OnInit  {
       this.map.set(a,row)
 
       }
+
+  constructor(private http: HttpClient,private router: Router) {
+    const users: UserData[] = [];
+    //  for (let i = 1; i <= 100; i++) { users.push(createNewUser(i)); }
+
+    // Assign the data to the data source for the table to render
+
+
+    this.http.get('http://13.232.165.2:3000/cheque').subscribe(data => {
+      //console.log(data);
+      this.data=data;
+      for(var t=0;t<this.data.length;t++){
+        users.push(this.data[t])
+
+      }
+      this.dataSource = new MatTableDataSource(users);
+
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+      //  console.log("sdfsd "+this.dataSource)
+
+
+    });
+  }
+
       g(){
 
 console.log(this.map)
@@ -81,9 +83,9 @@ var xdata=[];
 
 	}
 //	console.log(xdata)
-a=JSON.stringify(xdata)
+a=xdata;
 console.log(a)
-window.open("http://alektasolutions.com/purchase/print/cheques/ang?a="+a, "_blank");
+window.open("http://alektasolutions.com/purchase/print/cheques/ang?a="+JSON.stringify(a), "_blank");
 
 //this.router.navigate(['/multicheck',a])
       }
@@ -195,7 +197,7 @@ export function  convertNumberToWords(amount:string) {
                }
            }
        }
-       var value = "";
+       var value = 0;
        for (var i = 0; i < 9; i++) {
            if (i == 0 || i == 2 || i == 4 || i == 7) {
                value = n_array[i] * 10;

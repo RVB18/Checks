@@ -8,6 +8,9 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MulticheckComponent implements OnInit {
 
+  data:any;
+  m:any;
+
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {

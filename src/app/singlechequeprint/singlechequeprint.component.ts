@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
@@ -9,6 +9,8 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
   styleUrls: ['./singlechequeprint.component.css']
 })
 export class SinglechequeprintComponent implements OnInit, AfterViewInit {
+
+  data:any;
 
   constructor(private route: ActivatedRoute,private router: Router,private http: HttpClient) { }
   ngAfterViewInit() {

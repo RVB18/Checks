@@ -11,6 +11,10 @@ import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
   styleUrls: ['./vendor.component.css']
 })
 export class VendorComponent implements OnInit {
+
+  map:any;
+  data:any;
+  
   displayedColumns = [ 'Name', 'Pending Amount', 'Paid Amount','View'];
   dataSource: MatTableDataSource<UserData>;
   //
