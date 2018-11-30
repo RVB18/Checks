@@ -28,8 +28,46 @@ export class AppComponent implements OnInit {
 
     });
 }
+onvendorcreate(data){
 
+  console.log(data.value)
+
+  this.http.post('http://13.232.165.2:3000/singlecheque',data.value).subscribe(data => {
+    //console.log(data);
+    console.log(data)
+    if(data.message=="Success"){
+    alert("Succesfully Saved")
+    window.location.reload();
+}
+    else
+    alert("Spmething Went wrong..")
+
+  //  window.open('/cheque')
+
+  });
+}
   ngOnInit() {
+
+            this.http.get('http://13.232.165.2:3000/vendornames').subscribe(data => {
+              //console.log(data);
+          var datas=data.data;
+          //console.log(this.datas)
+     var w=[]
+    for(var a=0;a<datas.length;a++){
+      if(datas[a].Name){
+    w.push({Name:datas[a].Name})
+    }
+
+    }
+    this.mat=w
+    console.log(this.mat)
+
+          //    alert("Succesfully Saved")
+            //  window.open('/cheque')
+
+            });
+
+
 
   }
 

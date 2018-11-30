@@ -47,11 +47,11 @@ export class ChequeslistComponent implements OnInit  {
     //  for (let i = 1; i <= 100; i++) { users.push(createNewUser(i)); }
 
     // Assign the data to the data source for the table to render
-
+//
 
     this.http.get('http://13.232.165.2:3000/cheque').subscribe(data => {
-      //console.log(data);
-      this.data=data;
+      console.log(data);
+      this.data=data.data;
       for(var t=0;t<this.data.length;t++){
         users.push(this.data[t])
 
@@ -72,8 +72,44 @@ console.log(this.map)
 var a=[]
 this.map.forEach((value, key) => {
 var k=convertNumberToWords(value.Dollar)
-  a.push({name:value.Name,date:value.Date,amount:value.Dollar,words:k})
+var num=value.Dollar+""
+if(num.includes(".")){
+var dot=num .split(".")
+var doting=""
+if(dot[1].length==1)
+doting=dot[1]+"0"
+else
+doting=dot[1]
+var nu=convertNumberToWords(parseInt(dot[0]))+" and "+doting+"/100*****"
+var astreik="";
+var g1=5-dot[0].length
 
+while(g1>0){
+
+astreik+="*"
+
+
+g1--;
+}
+a.push({name:value.Name,date:value.Date,amount:astreik+value.Dollar,words:nu})
+
+}
+else{
+
+  var g1=5-num.length
+  console.log("astreik "+g1)
+
+  var astreik=""
+  while(g1>0){
+
+  astreik+="*"
+
+
+  g1--;
+  }
+  console.log("astreik "+g1)
+  a.push({name:value.Name,date:value.Date,amount:astreik+value.Dollar,words:k})
+}
 });
 var xdata=[];
 	while(a.length>0){

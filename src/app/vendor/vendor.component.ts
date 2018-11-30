@@ -14,7 +14,7 @@ export class VendorComponent implements OnInit {
 
   map:any;
   data:any;
-  
+
   displayedColumns = [ 'Name', 'Pending Amount', 'Paid Amount','View'];
   dataSource: MatTableDataSource<UserData>;
   //
@@ -37,12 +37,15 @@ export class VendorComponent implements OnInit {
 
 
     this.http.get('http://13.232.165.2:3000/vendordetails').subscribe(data => {
-      //console.log(data);
-      this.data=data;
-      for(var t=0;t<data.length;t++){
-        users.push(data[t])
+      var tp=data.data
+
+      this.data=tp;
+      for(var t=0;t<tp.length;t++){
+        users.push(tp[t])
 
       }
+      console.log(users)
+
       this.dataSource = new MatTableDataSource(users);
 
       this.dataSource.paginator = this.paginator;

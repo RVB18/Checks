@@ -9,25 +9,20 @@
         <div id="signup">
           <h1>Welcome Back!</h1>
 
-                    <form action="/" method="post">
-
+          <form class="form-horizontal"  #Data = "ngForm" (ngSubmit) = "signup(Data.value)">
                       <div class="field-wrap">
-                      <label>
-                        Email Address<span class="req">*</span>
-                      </label>
-                      <input type="email"required autocomplete="off"/>
+
+                      <input type="email"required placeholder="Email" autocomplete="off" name="emails" id="email" ngMode/>
                     </div>
 
                     <div class="field-wrap">
-                      <label>
-                        Password<span class="req">*</span>
-                      </label>
-                      <input type="password"required autocomplete="off"/>
+
+                      <input type="password" required placeholder="Password" autocomplete="off" name="passwords" id="password" ngModel/>
                     </div>
 
                     <p class="forgot"><a href="#">Forgot Password?</a></p>
 
-                    <button class="button button-block">Log In</button>
+                    <button class="button button-block" >Log In</button>
 
                     </form>
 

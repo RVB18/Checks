@@ -46,7 +46,7 @@ import {
   MatToolbarModule,
   MatTooltipModule,
   MatStepperModule,
-
+  
 } from '@angular/material';
 
 import {CdkTableModule} from '@angular/cdk/table';
@@ -61,10 +61,9 @@ import { SinglechequeprintComponent } from './singlechequeprint/singlechequeprin
 import { MulticheckComponent } from './multicheck/multicheck.component';
 import { CommonModule } from '@angular/common';
 import { Multicheck2Component } from './multicheck2/multicheck2.component';
-import { TableviewComponent } from './tableview/tableview.component';
+import { TabletestComponent } from './tabletest/tabletest.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
-import {DataService} from './services/data.service';
 
 @NgModule({
   exports: [
@@ -112,7 +111,7 @@ export class DemoMaterialModule {}
     VendorComponent,
     VendorchecksdetailsComponent,
     SinglechequeprintComponent,
-    MulticheckComponent, Multicheck2Component,LoginComponent,SignupComponent,TableviewComponent,
+    MulticheckComponent, Multicheck2Component,LoginComponent,TabletestComponent,SignupComponent,
   ],
   imports: [
     BrowserModule,
@@ -128,7 +127,7 @@ HttpClientModule,
 HttpModule
 
   ],
-  providers: [UserService,DataService],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

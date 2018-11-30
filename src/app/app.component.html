@@ -34,10 +34,17 @@ Settings          </a>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item " [routerLinkActive]="['active']">
-                            <a class="nav-link" routerLink="/cheques"><i class="fa fa-credit-card"></i> Cheque </a>
-                        </li>
+
+
                         <li class="nav-item dropdown" [routerLinkActive]="['active']">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-credit-card"></i> Check</a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
+                                <a class="dropdown-item"
+                                 href="http://alektasolutions.com/purchase/print/cheque?date=2018-11-26&name=ravinder&amount=4500&addr=Phoenix,Arizona" routerLink="/cheques"> Checks </a>
+                                <a class="dropdown-item"  data-toggle="modal" data-target="#id02">Single Check</a>
+                            </div>
+                        </li>
+    <li class="nav-item dropdown" [routerLinkActive]="['active']">
                             <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa  fa-user"></i>Vendor </a>
                             <div class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
                                 <a class="dropdown-item"
@@ -115,6 +122,72 @@ Settings          </a>
 
 
 
+
+        <div class="modal fade" id="id02">
+          <div class="modal-dialog">
+            <div class="modal-content">
+
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">Create Single Check</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <form  #f="ngForm" (ngSubmit)="onvendorcreate(f)">
+
+              <div class="modal-body">
+                <div class="row" style="margin-left:50px;">
+                <br>
+                <br>
+                         <div class="col-50" >
+
+
+
+                              <label for="fname"><b>Vendor</b></label><br>
+
+
+                              <select class="form-control" name="Name" ngModel>
+
+
+                                <option *ngFor="let st of mat" value={{st.Name}} >{{st.Name}}</option>
+
+                              </select>
+
+
+                              <label for="email"><b> Date</b> </label>
+                   <input type="date" placeholder="Enter Date" name="Date" data-date-format="DD MMMM YYYY" class="form-control " ngModel required >
+
+
+
+                   <label for="city"> <b>Description</b></label>
+
+            <input type="text" placeholder="Enter Description" name="Description" class="form-control" required ngModel >
+
+            <label for="city"> <b>Amount</b></label>
+              <input type="text" placeholder="Enter Amount" name="Dollar" class="form-control" required ngModel >
+
+                           </div>
+                           <div class="col-25">
+
+
+
+                    <!-- <label > <b>Upload Signature</b> </label>
+                  <input class="form-control"  type="file" name="pic" accept="image/png" required>-->
+                </div>
+                     <label>
+
+                     </label>
+
+                <br>
+                           </div>          </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-success" >Submit</button>
+
+                <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+              </div>
+              </form>
+            </div>
+          </div>
+        </div>
 
 
 <router-outlet></router-outlet>

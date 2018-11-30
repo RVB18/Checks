@@ -79,11 +79,11 @@
 					The actual rendered columns are set as a property on the row definition" -->
 
 					<!-- Position Column -->
-			
+
 
 					<!-- ID Column -->
 					<ng-container matColumnDef="chequeid">
-						<mat-header-cell *matHeaderCellDef mat-sort-header> chequeid </mat-header-cell>
+						<mat-header-cell *matHeaderCellDef mat-sort-header>ID </mat-header-cell>
 						<mat-cell *matCellDef="let dataSource"> {{dataSource.chequeid}} </mat-cell>
 					</ng-container>
 
@@ -102,7 +102,7 @@
 					<!-- Color Column -->
 					<ng-container matColumnDef="Amount">
 						<mat-header-cell *matHeaderCellDef mat-sort-header> Amount </mat-header-cell>
-						<mat-cell *matCellDef="let dataSource" [style.color]="dataSource.color"> {{dataSource.Dollar}}$ </mat-cell>
+						<mat-cell *matCellDef="let dataSource" [style.color]="dataSource.color"> {{dataSource.Dollar}}</mat-cell>
 					</ng-container>
 					<ng-container matColumnDef="Status">
 						<mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>

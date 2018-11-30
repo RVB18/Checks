@@ -9,36 +9,28 @@
         <div id="signup">
           <h1>Sign Up for Free</h1>
 
-          <form action="/" method="post">
+          <form class="form-horizontal"  #Data = "ngForm" (ngSubmit) = "signup(Data.value)">
 
           <div class="top-row">
             <div class="field-wrap">
-              <label>
-                First Name<span class="req">*</span>
-              </label>
-              <input type="text" required autocomplete="off" />
+
+              <input type="text" required placeholder="Name" autocomplete="off"  name="fname" id="fname" ngModel/>
             </div>
 
             <div class="field-wrap">
-              <label>
-                Last Name<span class="req">*</span>
-              </label>
-              <input type="text"required autocomplete="off"/>
+
+              <input type="text"required placeholder="Last name" autocomplete="off" name="lname" id="lname" ngModel/>
             </div>
           </div>
 
           <div class="field-wrap">
-            <label>
-              Email Address<span class="req">*</span>
-            </label>
-            <input type="email"required autocomplete="off"/>
+
+            <input type="email"required placeholder="Email" autocomplete="off" name="email" id="email" ngModel/>
           </div>
 
           <div class="field-wrap">
-            <label>
-              Set A Password<span class="req">*</span>
-            </label>
-            <input type="password"required autocomplete="off"/>
+
+            <input type="password"required placeholder="Password" autocomplete="off"name="pasword"  id="password" ngModel/>
           </div>
 
           <button type="submit" class="button button-block" data-toggle="modal" data-target="#myModal">Get Started</button>
@@ -59,12 +51,11 @@
                <!-- Modal body -->
                <div class="modal-body">
        <p>Please enter your 6-digit authentication code </p>
-       <label for="cvv"><strong>Code</strong></label>
-                       <input type="text" id="cvv" name="cvv" placeholder="000000"></div>
+       <input type="password"name="verify" id="verifys" placeholder="000000"></div>
 
                <!-- Modal footer -->
                <div class="modal-footer">
-               <button type="button" class="btn btn-success">Submit</button>
+               <button type="button" (click)="verify()"class="btn btn-success">Submit</button>
 
                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                </div>
@@ -72,7 +63,7 @@
              </div>
            </div>
          </div>
-      
+
       </div><!-- tab-content -->
 
 </div> <!-- /form -->

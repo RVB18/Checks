@@ -9,7 +9,6 @@ import { Multicheck2Component } from './multicheck2/multicheck2.component';
 import { TabletestComponent } from './tabletest/tabletest.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
-import { TableviewComponent } from './tableview/tableview.component';
 
 
 
@@ -23,7 +22,7 @@ const routes: Routes = [
 {path:'login',component:LoginComponent},
 {path:'signup',component:SignupComponent},
 
-{path:'tableview',component:TableviewComponent}];
+{path:'tabletest',component:TabletestComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
