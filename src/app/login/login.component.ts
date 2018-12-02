@@ -33,8 +33,11 @@ this.http.get('http://13.232.165.2:3000/loginincognito/'+this.c+'/'+this.p)
     {
       res.send(err)
     }
-  var r=res.json();
-console.log(r)
+    var r=res.json();
+	if(r.message=="Error")
+alert(r.data.message)
+else
+this.router.navigate(['/cheques'])
 
 })
   }

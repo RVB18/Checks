@@ -15,13 +15,15 @@ export class VendorchecksdetailsComponent implements OnInit {
 
   data:any;
 
-  displayedColumns = [ 'ChequeID', 'Name', 'Date', 'Amount','Status','Print'];
+  displayedColumns = [ 'ChequeID', 'Name', 'Date', 'Amount','Status','addr','Print'];
   dataSource: MatTableDataSource<UserData>;
   //
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
   send(data){
+	  
+	  console.log(data)
  var k =JSON.stringify(data);
  var num=data.Dollar+""
  if(num.includes(".")){
@@ -42,7 +44,7 @@ export class VendorchecksdetailsComponent implements OnInit {
 
  g1--;
  }
- window.open('http://alektasolutions.com/purchase/print/cheque/ang?words='+nu+'&date='+data.Date+'&name='+data.Name+'&amount='+astreik+data.Dollar+'&addr=,,')
+ window.open('http://alektasolutions.com/purchase/print/cheque/ang?words='+nu+'&date='+data.Date+'&name='+data.Name+'&amount='+astreik+data.Dollar+'&addr='+data.Address)
 
  }
  else{
@@ -58,8 +60,16 @@ export class VendorchecksdetailsComponent implements OnInit {
    g1--;
    }
    console.log("astreik "+g1)
-   window.open('http://alektasolutions.com/purchase/print/cheque/ang?words='+convertNumberToWords(data.Dollar)+'&date='+data.Date+'&name='+data.Name+'&amount='+astreik+data.Dollar+'&addr=,,')
+   window.open('http://alektasolutions.com/purchase/print/cheque/ang?words='+convertNumberToWords(data.Dollar)+'&date='+data.Date+'&name='+data.Name+'&amount='+astreik+data.Dollar+".00"+'&addr='+data.Address)
  }
+ 
+ this.http.get('http://13.232.165.2:3000/statusupdates?a='+"'"+data.chequeid+"'").subscribe(data => {
+      console.log(data);
+      this.data=data.data;
+     
+
+
+    });
 
   }
 
@@ -123,6 +133,7 @@ export interface UserData {
   Dollar: string;
   Date: string;
   Status: string;
+  addr;string;
 
 }
 //

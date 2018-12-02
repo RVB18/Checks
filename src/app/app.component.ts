@@ -18,22 +18,26 @@ export class AppComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   onSubmit(f){
+console.log(f.value)
 
-//
     this.http.post('http://alektasolutions.com/connected/config/save/ang',f.value).subscribe(data => {
       //console.log(data);
       console.log(data)
       alert("Succesfully Saved")
     //  window.open('/cheque')
 
-    });
+    });//
 }
 onvendorcreate(data){
 
   console.log(data.value)
-
-  this.http.post('http://13.232.165.2:3000/singlecheque',data.value).subscribe(data => {
-    //console.log(data);
+var date=new Date(data.value.Date)
+var t=date.getMonth()+1
+var ne=t+"/"+date.getDate()+"/"+date.getFullYear();
+var f={Name:data.value.Name,Date:ne,Dollar:data.value.Dollar,Address:data.value.Address}
+console.log(f)
+  this.http.post('http://13.232.165.2:3000/singlecheque',f).subscribe(data => {
+    ///console.log(data);
     console.log(data)
     if(data.message=="Success"){
     alert("Succesfully Saved")

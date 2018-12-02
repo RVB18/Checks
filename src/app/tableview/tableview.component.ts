@@ -1,16 +1,12 @@
 
-
-
-
-
-
+import { Component } from '@angular/core';
 import { UserService } from './services/user.service';
 
 
 
 import {DataSource} from '@angular/cdk/collections';
 
-import { ElementRef, OnInit, ViewChild,Component } from '@angular/core';
+import { ElementRef, OnInit, ViewChild} from '@angular/core';
 import {DataService} from '../services/data.service';
 import {HttpClient} from '@angular/common/http';
 import {MatDialog, MatPaginator, MatSort} from '@angular/material';
@@ -41,10 +37,6 @@ import {BehaviorSubject, fromEvent, merge, Observable} from 'rxjs';
 })
 
 export class TableviewComponent implements OnInit {
-
-
-
-
   displayedColumns = ['id', 'Name', 'Address', 'Mobile', 'Email','actions'];
   exampleDatabase: DataService | null;
   dataSource: ExampleDataSource | null;
@@ -96,7 +88,7 @@ export class TableviewComponent implements OnInit {
     });
   }
 
-  startEdit(i: number, id: string, Name: string, Address: string, Mobile: string, Email) {
+  startEdit(i: number, id: string, Name: string, Address: string, Mobile: string, Email:string) {
     this.id = id;
         console.log(this.id);
     // index row is used just for debugging proposes and can be removed
@@ -105,6 +97,8 @@ export class TableviewComponent implements OnInit {
     const dialogRef = this.dialog.open(MattableeditComponent, {
       data: {id: id, Name: Name, Address: Address, Mobile: Mobile, Email: Email}
     });
+
+//			window.location.reload;
 
     dialogRef.afterClosed().subscribe(result => {
       if (result === 1) {
@@ -245,16 +239,15 @@ export class ExampleDataSource extends DataSource<Issue> {
 
       switch (this._sort.active) {
         case 'id': [propertyA, propertyB] = [a.id, b.id]; break;
-        case 'title': [propertyA, propertyB] = [a.title, b.title]; break;
-        case 'state': [propertyA, propertyB] = [a.state, b.state]; break;
+        case 'Name': [propertyA, propertyB] = [a.Name, b.Name]; break;
+        case 'Address': [propertyA, propertyB] = [a.Address, b.Address]; break;
         case 'url': [propertyA, propertyB] = [a.url, b.url]; break;
-        case 'created_at': [propertyA, propertyB] = [a.created_at, b.created_at]; break;
-        case 'updated_at': [propertyA, propertyB] = [a.updated_at, b.updated_at]; break;
+
       }
 
       const valueA = isNaN(+propertyA) ? propertyA : +propertyA;
       const valueB = isNaN(+propertyB) ? propertyB : +propertyB;
-//
+
       return (valueA < valueB ? -1 : 1) * (this._sort.direction === 'asc' ? 1 : -1);
     });
   }

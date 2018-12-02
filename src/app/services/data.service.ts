@@ -43,6 +43,7 @@ export class DataService {
     console.log(issue)
     this.httpClient.post(this.API_URL, issue).subscribe(data => {
           this.dialogData = issue;
+		  window.location.reload;
       //this.dialogData = kanbanItem;
     //  this.toastrService.success('Successfully added', 3000);
       },
@@ -56,6 +57,7 @@ console.log(issue);
     this.httpClient.put(this.API_URL+"?id="+issue.id, issue).subscribe(data => {
         this.dialogData = issue;
 
+		  window.location.reload;
 
   });
 
@@ -65,6 +67,7 @@ console.log(issue);
   deleteIssue (id: number): void {
 
     this.httpClient.delete(this.API_URL+"?id="+id).subscribe(data => {
+		  window.location.reload;
 
 
     console.log(id);

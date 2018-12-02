@@ -14,14 +14,13 @@ import {Issue} from '../models/issue';
 })
 
 
-//
 
 export class AddComponent  implements OnInit {
   constructor(public dialogRef: MatDialogRef<AddComponent>,
               @Inject(MAT_DIALOG_DATA) public data: Issue,
               public dataService: DataService) { }
 
-//
+
 
 
   formControl = new FormControl('', [

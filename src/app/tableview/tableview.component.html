@@ -1,19 +1,16 @@
-
+<br>
+<h1 align="center" >Vendor's List</h1>
 
 <br>
-<h1 align="center" >Vendor List</h1>
-
-<br>
-<div class="container" >
-
-<div class="form">
-  <mat-form-field floatPlaceholder="never" style="color:black;">
-    <input matInput #filter placeholder="Search Vendor">
-  </mat-form-field>
-</div>
-<div class="example-container mat-elevation-z8">
 
 
+<div class="container mat-elevation-z8">
+
+  <div class="form">
+    <mat-form-field floatPlaceholder="never" color="accent">
+      <input matInput #filter placeholder="Filter issues">
+    </mat-form-field>
+  </div>
 
   <mat-table #table [dataSource]="dataSource" matSort class="mat-cell">
 
@@ -50,7 +47,7 @@
 
     <ng-container matColumnDef="actions">
       <mat-header-cell *matHeaderCellDef>
-        <button mat-icon-button color="primary" (click)="addNew()" style="color:white;">
+        <button mat-icon-button color="primary" (click)="addNew()">
           <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
         </button>
       </mat-header-cell>
@@ -60,11 +57,11 @@
 
 
       <mat-cell *matCellDef="let row; let i=index;">
-        <button mat-icon-button style="color:black;" (click)="startEdit(i, row.id, row.Name, row.Address, row.Mobile, row.Email)">
+        <button mat-icon-button color="accent" (click)="startEdit(i, row.id, row.Name, row.Address, row.Mobile, row.Email)">
           <mat-icon aria-label="Edit">edit</mat-icon>
         </button>
 
-        <button mat-icon-button style="color:black;" (click)="deleteItem(i, row.id, row.Name, row.Address, row.Mobile, row.Email)">
+        <button mat-icon-button color="accent" (click)="deleteItem(i, row.id, row.Name, row.Address, row.Mobile, row.Email)">
           <mat-icon aria-label="Delete">delete</mat-icon>
         </button>
       </mat-cell>
@@ -85,5 +82,4 @@
                  [pageSize]="5"
                  [pageSizeOptions]="[5, 10, 25, 100]">
   </mat-paginator>
-</div>
 </div>

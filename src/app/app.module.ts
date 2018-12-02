@@ -65,7 +65,9 @@ import { TableviewComponent } from './tableview/tableview.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import {DataService} from './services/data.service';
-
+import {AddComponent} from'./add/add.component';
+import {MattableeditComponent} from'./mattableedit/mattableedit.component';
+import {MattabledeleteComponent} from './mattabledelete/mattabledelete.component'
 @NgModule({
   exports: [
     CdkTableModule,
@@ -112,7 +114,7 @@ export class DemoMaterialModule {}
     VendorComponent,
     VendorchecksdetailsComponent,
     SinglechequeprintComponent,
-    MulticheckComponent, Multicheck2Component,LoginComponent,SignupComponent,TableviewComponent,
+    MulticheckComponent, Multicheck2Component,LoginComponent,SignupComponent,TableviewComponent,AddComponent,MattableeditComponent,MattabledeleteComponent,
   ],
   imports: [
     BrowserModule,
@@ -128,6 +130,11 @@ HttpClientModule,
 HttpModule
 
   ],
+  entryComponents:[
+    AddComponent,
+    MattableeditComponent,
+    MattabledeleteComponent,
+  ]
   providers: [UserService,DataService],
   bootstrap: [AppComponent]
 })

@@ -16,7 +16,7 @@ export class ChequeslistComponent implements OnInit  {
   data:any;
   map:any;
 
-  displayedColumns = [ 'chequeid', 'Name', 'Date', 'Amount','Status'];
+  displayedColumns = [ 'chequeid', 'Name', 'Date', 'Amount','Status','Address'];
   dataSource: MatTableDataSource<UserData>;
   //
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -70,7 +70,9 @@ export class ChequeslistComponent implements OnInit  {
 
 console.log(this.map)
 var a=[]
+var idmap='';
 this.map.forEach((value, key) => {
+	idmap+="'"+value.chequeid+"',"
 var k=convertNumberToWords(value.Dollar)
 var num=value.Dollar+""
 if(num.includes(".")){
@@ -91,7 +93,11 @@ astreik+="*"
 
 g1--;
 }
-a.push({name:value.Name,date:value.Date,amount:astreik+value.Dollar,words:nu})
+
+  var mydate = new Date(value.Date);
+   var t=mydate.getMonth()+1;
+
+a.push({name:value.Name,date:value.Date,amount:astreik+value.Dollar,words:nu,addr:value.Address})
 
 }
 else{
@@ -108,7 +114,11 @@ else{
   g1--;
   }
   console.log("astreik "+g1)
-  a.push({name:value.Name,date:value.Date,amount:astreik+value.Dollar,words:k})
+  var mydate = new Date(value.Date);
+    console.log(
+
+   var t=mydate.getMonth()+1;
+  a.push({name:value.Name,date:value.Date,amount:astreik+value.Dollar+".00",words:k,addr:value.Address})
 }
 });
 var xdata=[];
@@ -120,7 +130,20 @@ var xdata=[];
 	}
 //	console.log(xdata)
 a=xdata;
-console.log(a)
+idmap = idmap.slice(0, -1); // "12345.0"
+
+
+console.log(idmap)
+  this.http.get('http://13.232.165.2:3000/statusupdates?a='+idmap).subscribe(data => {
+      console.log(data);
+      this.data=data.data;
+     
+
+
+    });
+
+
+
 window.open("http://alektasolutions.com/purchase/print/cheques/ang?a="+JSON.stringify(a), "_blank");
 
 //this.router.navigate(['/multicheck',a])
@@ -178,6 +201,7 @@ export interface UserData {
   Name: string;
   Date: string;
   Dollar: string;
+  Address:string;
 }
 
 //

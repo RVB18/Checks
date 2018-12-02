@@ -31,7 +31,7 @@ verify=function()
 .subscribe (
   (res:Response) =>{
   var r=res.json();
-console.log(r)
+this.router.navigate(['/login'])
 
 })
 }
@@ -40,19 +40,26 @@ console.log(r)
   console.log(JSON.stringify(data))
   this.c=document.getElementById("fname").value;
     this.p=document.getElementById("email").value;
-    this.e=document.getElementById("password").value;
+    this.e=document.getElementById("password").value
 console.log(this.c+this.p)
-this.http.post('http://13.232.165.2:3000/registorincognito/'+this.c+'/'+this.e+'/'+this.p)
-.subscribe (
-  (res:Response,err) =>{
-    if(err)
-    {
-      res.send(err)
-    }
-  var r=res.json();
-console.log(r)
 
-})
+
+  this.http.get('http://13.232.165.2:3000/registorincognito/'+this.p+'/'+this.e+'/'+this.p)
+      .subscribe(
+        res => {
+          console.log(res.json);
+        },
+        err => {
+          console.log("error")
+        }
+      );/*
+this.http.post('http://13.232.165.2:3000/registorincognito/'+this.p+'/'+this.e+'/'+this.p)
+.subscribe (
+  (res:Response) =>{
+ console.log(res)
+  var r=res.json
+alert(r)
+})*/
 }
   ngOnInit() {
   }

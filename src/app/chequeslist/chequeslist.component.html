@@ -108,7 +108,10 @@
 						<mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
 						<mat-cell *matCellDef="let dataSource"> {{dataSource.Status}} </mat-cell>
 					</ng-container>
-
+<ng-container matColumnDef="Address">
+						<mat-header-cell *matHeaderCellDef mat-sort-header> Address </mat-header-cell>
+						<mat-cell *matCellDef="let dataSource"> {{dataSource.Address}} </mat-cell>
+					</ng-container>
 
 
 					<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

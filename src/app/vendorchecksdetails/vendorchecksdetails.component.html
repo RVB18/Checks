@@ -51,6 +51,10 @@
       <mat-cell *matCellDef="let dataSource" [style.color]="dataSource.color"> {{dataSource.Status}} </mat-cell>
     </ng-container>
 
+<ng-container matColumnDef="addr">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Address </mat-header-cell>
+      <mat-cell *matCellDef="let dataSource" > {{dataSource.Address}} </mat-cell>
+    </ng-container>
 
 		<ng-container matColumnDef="Print">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Print </mat-header-cell>
