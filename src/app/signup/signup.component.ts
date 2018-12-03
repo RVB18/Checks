@@ -38,9 +38,9 @@ this.router.navigate(['/login'])
   signup=function(data)
 {
   console.log(JSON.stringify(data))
-  this.c=document.getElementById("fname").value;
-    this.p=document.getElementById("email").value;
-    this.e=document.getElementById("password").value
+  this.c=data.fname;
+    this.p=data.email
+    this.e=data.password
 console.log(this.c+this.p)
 
 

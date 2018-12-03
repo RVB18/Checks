@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 //import { UserService } from './services/user.service';
 //import { User } from './models/user.model';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
@@ -14,9 +14,26 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 })
 
 export class AppComponent implements OnInit {
-
+mat:any;
+data2:any;
   constructor(private http: HttpClient) {}
+  ngOnInit() {
 
+            this.http.get('http://13.232.165.2:3000/vendornames').subscribe(res => {
+              //console.log(data);
+
+    this.mat=res;
+    this.mat=this.mat.data
+    console.log(this.mat)
+
+          //    alert("Succesfully Saved")
+            //  window.open('/cheque')
+
+            });
+
+
+
+  }
   onSubmit(f){
 console.log(f.value)
 
@@ -39,7 +56,8 @@ console.log(f)
   this.http.post('http://13.232.165.2:3000/singlecheque',f).subscribe(data => {
     ///console.log(data);
     console.log(data)
-    if(data.message=="Success"){
+    this.data2=data
+    if(this.data2.message=="Success"){
     alert("Succesfully Saved")
     window.location.reload();
 }
@@ -50,30 +68,7 @@ console.log(f)
 
   });
 }
-  ngOnInit() {
 
-            this.http.get('http://13.232.165.2:3000/vendornames').subscribe(data => {
-              //console.log(data);
-          var datas=data.data;
-          //console.log(this.datas)
-     var w=[]
-    for(var a=0;a<datas.length;a++){
-      if(datas[a].Name){
-    w.push({Name:datas[a].Name})
-    }
-
-    }
-    this.mat=w
-    console.log(this.mat)
-
-          //    alert("Succesfully Saved")
-            //  window.open('/cheque')
-
-            });
-
-
-
-  }
 
 }
 

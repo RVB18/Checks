@@ -1,6 +1,5 @@
 
 import { Component } from '@angular/core';
-import { UserService } from './services/user.service';
 
 
 
@@ -241,7 +240,8 @@ export class ExampleDataSource extends DataSource<Issue> {
         case 'id': [propertyA, propertyB] = [a.id, b.id]; break;
         case 'Name': [propertyA, propertyB] = [a.Name, b.Name]; break;
         case 'Address': [propertyA, propertyB] = [a.Address, b.Address]; break;
-        case 'url': [propertyA, propertyB] = [a.url, b.url]; break;
+        case 'Mobile': [propertyA, propertyB] = [a.Mobile, b.Mobile]; break;
+        case 'Email': [propertyA, propertyB] = [a.Email, b.Email]; break;
 
       }
 

@@ -22,7 +22,7 @@ export class VendorchecksdetailsComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   send(data){
-	  
+
 	  console.log(data)
  var k =JSON.stringify(data);
  var num=data.Dollar+""
@@ -62,11 +62,11 @@ export class VendorchecksdetailsComponent implements OnInit {
    console.log("astreik "+g1)
    window.open('http://alektasolutions.com/purchase/print/cheque/ang?words='+convertNumberToWords(data.Dollar)+'&date='+data.Date+'&name='+data.Name+'&amount='+astreik+data.Dollar+".00"+'&addr='+data.Address)
  }
- 
+
  this.http.get('http://13.232.165.2:3000/statusupdates?a='+"'"+data.chequeid+"'").subscribe(data => {
       console.log(data);
-      this.data=data.data;
-     
+    //  this.data=data.data;
+//
 
 
     });

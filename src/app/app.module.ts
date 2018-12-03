@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import '../polyfills';
-import { UserService } from './services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Request,RequestMethod,Http,Response,Headers,ResponseType, ResponseContentType } from '@angular/http';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
@@ -134,8 +133,8 @@ HttpModule
     AddComponent,
     MattableeditComponent,
     MattabledeleteComponent,
-  ]
-  providers: [UserService,DataService],
+  ],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

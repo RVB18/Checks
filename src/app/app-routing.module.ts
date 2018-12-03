@@ -6,7 +6,6 @@ import { VendorchecksdetailsComponent } from './vendorchecksdetails/vendorchecks
 import { SinglechequeprintComponent } from './singlechequeprint/singlechequeprint.component';
 import { MulticheckComponent } from './multicheck/multicheck.component';
 import { Multicheck2Component } from './multicheck2/multicheck2.component';
-import { TabletestComponent } from './tabletest/tabletest.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { TableviewComponent } from './tableview/tableview.component';

@@ -16,7 +16,7 @@ export class DataService {
   dataChange: BehaviorSubject<Issue[]> = new BehaviorSubject<Issue[]>([]);
   // Temporarily stores data from dialogs
   dialogData: any;
-
+     datap:any;
   constructor (private httpClient: HttpClient) {}
 
   get data(): Issue[] {
@@ -29,14 +29,15 @@ export class DataService {
 
   /** CRUD METHODS */
   getAllIssues(): void {
-    this.httpClient.get<Issue[]>(this.API_URL).subscribe(data => {
-        this.dataChange.next(data.data);
+    this.httpClient.get<Issue[]>(this.API_URL).subscribe(datas => {
+      this.datap=datas;
+        this.dataChange.next(this.datap.data);
       },
       (error: HttpErrorResponse) => {
       console.log (error.name + ' ' + error.message);
       });
   }
-
+//
   // DEMO ONLY, you can find working methods below
   addIssue (issue: Issue): void {
 

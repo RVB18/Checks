@@ -23,15 +23,15 @@ constructor(private http: Http, private router: Router, private route: Activated
   {
     var data2=JSON.stringify(data)
     console.log(data2)
-    this.c=document.getElementById("email").value;
-    this.p=document.getElementById("password").value;
+    this.c=data.email;
+    this.p=data.password
 console.log(this.c+this.p)
 this.http.get('http://13.232.165.2:3000/loginincognito/'+this.c+'/'+this.p)
 .subscribe (
   (res:Response,err) =>{
     if(err)
     {
-      res.send(err)
+    //  res.send(err)
     }
     var r=res.json();
 	if(r.message=="Error")

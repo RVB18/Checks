@@ -26,6 +26,7 @@ export class ChequeslistComponent implements OnInit  {
   highlight(element: Element) {
     element.highlighted = !element.highlighted;
   }
+
   highlightedRows(row){
       //  if(hash)
 //
@@ -82,7 +83,8 @@ if(dot[1].length==1)
 doting=dot[1]+"0"
 else
 doting=dot[1]
-var nu=convertNumberToWords(parseInt(dot[0]))+" and "+doting+"/100*****"
+var nu="";
+nu=(convertNumberToWords(parseInt(dot[0]))).toString()+" and "+(doting).toString()+"/100*****"
 var astreik="";
 var g1=5-dot[0].length
 
@@ -115,7 +117,6 @@ else{
   }
   console.log("astreik "+g1)
   var mydate = new Date(value.Date);
-    console.log(
 
    var t=mydate.getMonth()+1;
   a.push({name:value.Name,date:value.Date,amount:astreik+value.Dollar+".00",words:k,addr:value.Address})
@@ -136,8 +137,7 @@ idmap = idmap.slice(0, -1); // "12345.0"
 console.log(idmap)
   this.http.get('http://13.232.165.2:3000/statusupdates?a='+idmap).subscribe(data => {
       console.log(data);
-      this.data=data.data;
-     
+
 
 
     });
