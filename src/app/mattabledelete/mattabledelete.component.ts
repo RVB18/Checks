@@ -11,7 +11,7 @@ import {DataService} from '../services/data.service';
 export class MattabledeleteComponent implements OnInit {
 
 
-  constructor(public dialogRef: MatDialogRef<DeleteDialogComponent>,
+  constructor(public dialogRef: MatDialogRef<MattabledeleteComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any, public dataService: DataService) { }
 
 

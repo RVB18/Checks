@@ -16,7 +16,7 @@ export class MattableeditComponent implements OnInit {
 
 
 
-  constructor(public dialogRef: MatDialogRef<EditDialogComponent>,
+  constructor(public dialogRef: MatDialogRef<MattableeditComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any, public dataService: DataService) { }
 
   formControl = new FormControl('', [

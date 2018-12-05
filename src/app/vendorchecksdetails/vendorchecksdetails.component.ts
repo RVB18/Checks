@@ -15,6 +15,9 @@ export class VendorchecksdetailsComponent implements OnInit {
 
   data:any;
 
+
+
+
   displayedColumns = [ 'ChequeID', 'Name', 'Date', 'Amount','Status','addr','Print'];
   dataSource: MatTableDataSource<UserData>;
   //
@@ -33,7 +36,7 @@ export class VendorchecksdetailsComponent implements OnInit {
  doting=dot[1]+"0"
  else
  doting=dot[1]
- var nu=convertNumberToWords(parseInt(dot[0]))+" and "+doting+"/100*****"
+ var nu=convertNumberToWords(dot[0])+" and "+doting+"/100*****"
  var astreik="";
  var g1=5-dot[0].length
 
@@ -98,11 +101,20 @@ var name='';
     });
     this.http.get('http://13.232.165.2:3000/vendorcheques?name='+name).subscribe(data => {
       console.log(data);
-      this.data=data.data;
+      this.data=data;
+      this.data=this.data.data;
+
       for(var t=0;t<this.data.length;t++){
         users.push(this.data[t])
 
       }
+
+
+
+
+
+
+
       this.dataSource = new MatTableDataSource(users);
 
       this.dataSource.paginator = this.paginator;
@@ -184,7 +196,7 @@ export function  convertNumberToWords(amount:string) {
        for (var i = 0, j = 1; i < 9; i++, j++) {
            if (i == 0 || i == 2 || i == 4 || i == 7) {
                if (n_array[i] == 1) {
-                   n_array[j] = 10 + parseInt(n_array[j]);
+                   n_array[j] = 10 + n_array[j];
                    n_array[i] = 0;
                }
            }

@@ -14,6 +14,7 @@ export class VendorComponent implements OnInit {
 
   map:any;
   data:any;
+datac:any;
 
   displayedColumns = [ 'Name', 'Pending Amount', 'Paid Amount','View'];
   dataSource: MatTableDataSource<UserData>;
@@ -37,11 +38,11 @@ export class VendorComponent implements OnInit {
 
 
     this.http.get('http://13.232.165.2:3000/vendordetails').subscribe(data => {
-      var tp=data.data
+      this.datac=data;
 
-      this.data=tp;
-      for(var t=0;t<tp.length;t++){
-        users.push(tp[t])
+      this.datac=this.datac.data;
+      for(var t=0;t<this.datac.length;t++){
+        users.push(this.datac[t])
 
       }
       console.log(users)

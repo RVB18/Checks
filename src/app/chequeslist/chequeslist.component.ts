@@ -16,6 +16,9 @@ export class ChequeslistComponent implements OnInit  {
   data:any;
   map:any;
 
+
+
+
   displayedColumns = [ 'chequeid', 'Name', 'Date', 'Amount','Status','Address'];
   dataSource: MatTableDataSource<UserData>;
   //
@@ -23,9 +26,9 @@ export class ChequeslistComponent implements OnInit  {
   @ViewChild(MatSort) sort: MatSort;
 
 
-  highlight(element: Element) {
+  /*highlight(element: Element) {
     element.highlighted = !element.highlighted;
-  }
+  }*/
 
   highlightedRows(row){
       //  if(hash)
@@ -44,15 +47,21 @@ export class ChequeslistComponent implements OnInit  {
       }
 
   constructor(private http: HttpClient,private router: Router) {
+
+
     const users: UserData[] = [];
-    //  for (let i = 1; i <= 100; i++) { users.push(createNewUser(i)); }
+    //for (let i = 1; i <= 100; i++) { users.push(createNewUser(i)); }
 
     // Assign the data to the data source for the table to render
 //
 
+
+
     this.http.get('http://13.232.165.2:3000/cheque').subscribe(data => {
       console.log(data);
-      this.data=data.data;
+      this.data=data;
+      this.data=this.data.data;
+
       for(var t=0;t<this.data.length;t++){
         users.push(this.data[t])
 
@@ -84,7 +93,7 @@ doting=dot[1]+"0"
 else
 doting=dot[1]
 var nu="";
-nu=(convertNumberToWords(parseInt(dot[0]))).toString()+" and "+(doting).toString()+"/100*****"
+nu=convertNumberToWords(dot[0])+" and "+(doting).toString()+"/100*****"
 var astreik="";
 var g1=5-dot[0].length
 
@@ -206,6 +215,8 @@ export interface UserData {
 
 //
 export function  convertNumberToWords(amount:string) {
+
+
    var words = new Array();
    words[0] = '';
    words[1] = 'One';
@@ -252,7 +263,7 @@ export function  convertNumberToWords(amount:string) {
        for (var i = 0, j = 1; i < 9; i++, j++) {
            if (i == 0 || i == 2 || i == 4 || i == 7) {
                if (n_array[i] == 1) {
-                   n_array[j] = 10 + parseInt(n_array[j]);
+                   n_array[j] = 10 + n_array[j];
                    n_array[i] = 0;
                }
            }

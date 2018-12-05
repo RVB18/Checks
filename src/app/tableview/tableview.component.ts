@@ -40,7 +40,7 @@ export class TableviewComponent implements OnInit {
   exampleDatabase: DataService | null;
   dataSource: ExampleDataSource | null;
   index: number;
-  id: number;
+  id: string;
 
   constructor(public httpClient: HttpClient,
               public dialog: MatDialog,
@@ -111,7 +111,7 @@ export class TableviewComponent implements OnInit {
     });
   }
 
-  deleteItem(i: number, id: number, Name: string, Address: string, Mobile: string, Email:string) {
+  deleteItem(i: number, id: string, Name: string, Address: string, Mobile: string, Email:string) {
     this.index = i;
     this.id = id;
     const dialogRef = this.dialog.open(MattabledeleteComponent, {

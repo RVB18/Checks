@@ -14,6 +14,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpModule } from '@angular/http';
 
+
+
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -131,4 +133,4 @@ HttpModule
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-platformBrowserDynamic().bootstrapModule(AppModule);
+

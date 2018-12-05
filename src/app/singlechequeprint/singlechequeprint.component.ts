@@ -33,7 +33,7 @@ console.log(this.data)
        doting=dot[1]+"0"
        else
        doting=dot[1]
-       var nu=convertNumberToWords(parseInt(dot[0]))+" and "+doting+"/100*****"
+       var nu=(convertNumberToWords(dot[0])+" and "+doting+"/100*****").toString()
        var astreik="";
        var g1=5-dot[0].length
 
@@ -76,7 +76,12 @@ console.log(this.data)
   }
 
 }
+
+
+
 export function  convertNumberToWords(amount:string) {
+
+
    var words = new Array();
    words[0] = '';
    words[1] = 'One';
@@ -108,7 +113,7 @@ export function  convertNumberToWords(amount:string) {
    words[90] = 'Ninety';
    amount = amount.toString();
    var atemp = amount.split(".");
-   var number = atemp[0].split(",").join("");
+   var number =atemp[0].split(",").join("").toString();
    var n_length = number.length;
    var words_string = "";
    if (n_length <= 9) {
@@ -123,7 +128,7 @@ export function  convertNumberToWords(amount:string) {
        for (var i = 0, j = 1; i < 9; i++, j++) {
            if (i == 0 || i == 2 || i == 4 || i == 7) {
                if (n_array[i] == 1) {
-                   n_array[j] = 10 + parseInt(n_array[j]);
+                   n_array[j] = 10 + n_array[j];
                    n_array[i] = 0;
                }
            }

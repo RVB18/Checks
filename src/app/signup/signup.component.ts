@@ -19,11 +19,14 @@ export class SignupComponent implements OnInit {
 c:any;
 p:any;
 e:any;
-x:any
+
+
+x:any;
+
 constructor(private http: Http, private router: Router, private route: ActivatedRoute,private httpService: HttpClient) { }
 verify=function()
 {
-  this.x=document.getElementById("verifys").value;
+  //this.x=document.getElementById("verifys").value;
  // /conform/:verificationcode'
 
   console.log(this.x)
